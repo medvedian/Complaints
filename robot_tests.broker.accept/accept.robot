@@ -627,11 +627,11 @@ Login
   ...      ${ARGUMENTS[3]} ==  ${doc_id}
   ...      ${ARGUMENTS[4]} ==  ${field}
   go to  ${ViewTenderUrl}
-  sleep  5
+  sleep  10
   execute javascript                    angular.element("[id*='complaint-${ARGUMENTS[2]}']")[0].click()
   wait until element is visible         xpath=(.//button[@type='button']/span[@class='ng-binding ng-scope'])[9]  60
   click element                         xpath=(.//button[@type='button']/span[@class='ng-binding ng-scope'])[9]
-  wait until element is visible         xpath=(.//a[@class='link-like ng-binding'])[8]
+  wait until element is visible         xpath=(.//a[@class='link-like ng-binding'])[8]   60
   ${return_value}=      get text        xpath=(.//a[@class='link-like ng-binding'])[8]
   [return]  ${return_value}
 
@@ -791,7 +791,7 @@ Login
   #Кнопка "Створити вимогу"
   click element                  xpath=.//button[@type='submit']
   #Очікуємо появу поля "Пароль" та скасовуємо підписання
-  wait until element is visible  id=PKeyPassword  60
+  wait until element is visible  id=PKeyPassword  120
   click element                  xpath=(.//button[@ng-click='cancel()'])[1]
   #Очікуємо появи повідомлення
   wait until element is visible         xpath=.//div[@class='growl-container growl-fixed top-right']  120
@@ -862,7 +862,7 @@ Login
   #Кнопка "Створити вимогу"
   click element                  xpath=.//button[@type='submit']
   #Очікуємо появу поля "Пароль" та скасовуємо підписання
-  wait until element is visible  id=PKeyPassword  60
+  wait until element is visible  id=PKeyPassword  120
   click element                  xpath=(.//button[@ng-click='cancel()'])[1]
   #Очікуємо появи повідомлення
   wait until element is visible  xpath=.//div[@class='growl-container growl-fixed top-right']  120
@@ -1003,7 +1003,7 @@ Login
   click element                           xpath=.//button[@type='submit']
   #Очікуємо появи повідомлення
   wait until element is visible  xpath=.//div[@class='growl-container growl-fixed top-right']  120
-  sleep  5
+  sleep  10
   ${complaint_id}=  execute javascript   return angular.element("div:contains('${title}')").parent("a")[0].id
   ${delim}=  convert to string  t-
   ${complaint_id}=  parse_smth  ${complaint_id}  ${1}  ${delim}
@@ -1064,11 +1064,11 @@ Login
   #Кнопка "Створити вимогу"
   click element                  xpath=.//button[@type='submit']
   #Очікуємо появу поля "Пароль" та скасовуємо підписання
-  wait until element is visible  id=PKeyPassword  30
+  wait until element is visible  id=PKeyPassword  120
   click element                  xpath=(.//button[@ng-click='cancel()'])[1]
   #Очікуємо появи повідомлення
   wait until element is visible  xpath=.//div[@class='growl-container growl-fixed top-right']  120
-  sleep  5
+  sleep  10
   ${complaint_id}=  execute javascript   return angular.element("div:contains('${title}')").parent("a")[0].id
   ${delim}=  convert to string  t-
   ${complaint_id}=  parse_smth  ${complaint_id}  ${1}  ${delim}
