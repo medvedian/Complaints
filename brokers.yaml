@@ -366,10 +366,6 @@ Accept:
         openua:
             accelerator: 1440
             tender:  [0, 30]
-        complaints:
-            accelerator: 180
-            enquiry: [0, 15]
-            tender:  [0, 15]
     keywords_file: accept
     roles:
         viewer:         accept_Viewer
